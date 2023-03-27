@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>vismapay</name>
+    <displayName><![CDATA[Visma Pay]]></displayName>
+    <version><![CDATA[8.0.0]]></version>
+    <description><![CDATA[Accept e-payments with Visma Pay payment gateway.]]></description>
+    <author><![CDATA[Visma]]></author>
+    <tab><![CDATA[payments_gateways]]></tab>
+	<confirmUninstall><![CDATA[Are you sure you want to uninstall?]]></confirmUninstall>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+</module>
