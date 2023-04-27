@@ -13,7 +13,7 @@ class VismaPay
     protected $payment_method = [];
     protected $charge = [];
 
-    const API_URL = 'https://vismapay.local/pbwapi';
+    const API_URL = 'https://www.vismapay.com/pbwapi';
 
     public function __construct($api_key, $private_key, $version = 'w3.1', VismaPayConnector $connector = null)
     {
@@ -71,7 +71,7 @@ class VismaPay
             $payment_data['plugin_info'] .= '0';
         }
 
-        $payment_data['plugin_info'] .= '|8.0.0';
+        $payment_data['plugin_info'] .= '|8.0.1';
 
         return $this->makeRequest($url, $payment_data);
     }

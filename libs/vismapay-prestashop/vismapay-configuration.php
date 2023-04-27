@@ -438,15 +438,15 @@ class VismaPayConfiguration
                 ],
             ],
             /*
-             * Option for enabling Fellow Yrityslasku selection
+             * Option for enabling Alisa Yrityslasku selection
              */
             'VP_SELECT_LASKUYRITYKSELLE' => [
                 'defaultValue' => true,
                 'input' => [
                     'type' => 'radio',
                     'is_bool' => true,
-                    'label' => $this->module->l('Fellow Yrityslasku', $this->filename),
-                    'desc' => $this->module->l('Enable Fellow Yrityslasku in the Visma Pay payment page.', $this->filename),
+                    'label' => $this->module->l('Alisa Yrityslasku', $this->filename),
+                    'desc' => $this->module->l('Enable Alisa Yrityslasku in the Visma Pay payment page.', $this->filename),
                     'name' => 'VP_SELECT_LASKUYRITYKSELLE',
                     'class' => 't',
                     'values' => [

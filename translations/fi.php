@@ -47,8 +47,8 @@ $_MODULE['<{vismapay}prestashop>vismapay-configuration_4d3df28e3e68ed692ae51475b
 $_MODULE['<{vismapay}prestashop>vismapay-configuration_5f32937e9f12fdccb3fd3f4fcd074b07'] = 'Ota korttimaksut käyttöön maksusivulla.';
 $_MODULE['<{vismapay}prestashop>vismapay-configuration_6624c2c1512c438ccb4adcfc4febf8c4'] = 'Luottolaskut';
 $_MODULE['<{vismapay}prestashop>vismapay-configuration_a54c2e46aedc8b32d6ef324dc7b7bc7c'] = 'Ota lasku- ja osamaksu-maksutavat käyttöön maksusivulla.';
-$_MODULE['<{vismapay}prestashop>vismapay-configuration_a7677832d32ee6ab7d4400a8a96e8aca'] = 'Fellow Yrityslasku';
-$_MODULE['<{vismapay}prestashop>vismapay-configuration_0b1f5440a659e7124241e842d7120a0a'] = 'Ota Fellow Yrityslasku käyttöön maksusivulla.';
+$_MODULE['<{vismapay}prestashop>vismapay-configuration_fc46416347a9611ea8fa4c0227079b5e'] = 'Alisa Yrityslasku';
+$_MODULE['<{vismapay}prestashop>vismapay-configuration_4279eb4ad73434d4e96950a115d9de74'] = 'Ota Alisa Yrityslasku käyttöön maksusivulla.';
 $_MODULE['<{vismapay}prestashop>vismapay-configuration_21cc25b16f564443ba65e9fadf966a0a'] = 'Lähetä tuote-erittely maksurajapintaan';
 $_MODULE['<{vismapay}prestashop>vismapay-configuration_fc2b4eb2c692b7a15e826678ba481033'] = 'Ota käyttöön, poista päältä tai pakota tuote-erittelyn lähetys. Yleensä arvon tulisi olla Käytössä.';
 $_MODULE['<{vismapay}prestashop>vismapay-configuration_dc2eb84d1f952ad0e6b58014aabd616a'] = 'Pakota';
