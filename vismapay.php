@@ -64,7 +64,7 @@ class VismaPay extends PaymentModule
         $this->need_instance = 0;
         $this->bootstrap = true;
         $this->currencies = true;
-        $this->ps_versions_compliancy = ['min' => '8.0.1', 'max' => '8.0.1'];
+        $this->ps_versions_compliancy = ['min' => '8.0.1', 'max' => _PS_VERSION_];
 
         parent::__construct(); // Must be called before using translations
 
