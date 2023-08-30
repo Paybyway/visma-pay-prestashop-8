@@ -31,17 +31,17 @@ class VismaPayPaymentOptions
     /**
      * @var VismaPay Reference to the module instance
      */
-    private VismaPay $module;
+    private $module;
 
     /**
      * @var Context Prestashop context
      */
-    private Context $context;
+    private $context;
 
     /**
      * @var string Filename for translations
      */
-    private string $filename;
+    private $filename;
 
     /**
      * Constructor for handler.
@@ -84,10 +84,12 @@ class VismaPayPaymentOptions
      */
     public function getPaymentMethods(): array
     {
+        /*  Affects the order of payment options when using the 'separate' display option
+            For 'embedded' mode change the order in vismapay_embedded.tpl */
         $paymentMethods = [
+            'banks' => [],
             'creditcards' => [],
             'wallets' => [],
-            'banks' => [],
             'creditinvoices' => [],
         ];
 
@@ -208,10 +210,10 @@ class VismaPayPaymentOptions
         $paymentMethods = $this->getPaymentMethods();
 
         if (
-            empty($paymentMethods['creditcards']) &&
-            empty($paymentMethods['wallets']) &&
-            empty($paymentMethods['banks']) &&
-            empty($paymentMethods['creditinvoices'])
+            empty($paymentMethods['creditcards'])
+            && empty($paymentMethods['wallets'])
+            && empty($paymentMethods['banks'])
+            && empty($paymentMethods['creditinvoices'])
         ) {
             return null;
         }
@@ -246,10 +248,10 @@ class VismaPayPaymentOptions
         $paymentMethods = $this->getPaymentMethods();
 
         if (
-            empty($paymentMethods['creditcards']) &&
-            empty($paymentMethods['wallets']) &&
-            empty($paymentMethods['banks']) &&
-            empty($paymentMethods['creditinvoices'])
+            empty($paymentMethods['creditcards'])
+            && empty($paymentMethods['wallets'])
+            && empty($paymentMethods['banks'])
+            && empty($paymentMethods['creditinvoices'])
         ) {
             return null;
         }
@@ -272,10 +274,10 @@ class VismaPayPaymentOptions
         $paymentMethods = $this->getPaymentMethods();
 
         if (
-            empty($paymentMethods['creditcards']) &&
-            empty($paymentMethods['wallets']) &&
-            empty($paymentMethods['banks']) &&
-            empty($paymentMethods['creditinvoices'])
+            empty($paymentMethods['creditcards'])
+            && empty($paymentMethods['wallets'])
+            && empty($paymentMethods['banks'])
+            && empty($paymentMethods['creditinvoices'])
         ) {
             return null;
         }

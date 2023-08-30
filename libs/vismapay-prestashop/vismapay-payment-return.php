@@ -30,17 +30,17 @@ class VismaPayPaymentReturn
     /**
      * @var VismaPay Reference to the module instance
      */
-    private VismaPay $module;
+    private $module;
 
     /**
      * @var Context Prestashop context
      */
-    private Context $context;
+    private $context;
 
     /**
      * @var string Filename for translations
      */
-    private string $filename;
+    private $filename;
 
     /**
      * Constructor for handler.

@@ -35,22 +35,22 @@ class VismaPay extends PaymentModule
     /**
      * @var VismaPayConfiguration Class that handles module configurations
      */
-    public VismaPayConfiguration $configuration;
+    public $configuration;
 
     /**
      * @var VismaPayPaymentOptions Class that handles module payment options
      */
-    public VismaPayPaymentOptions $paymentOptions;
+    public $paymentOptions;
 
     /**
      * @var VismaPayPayment Class that handles module payment
      */
-    public VismaPayPayment $payment;
+    public $payment;
 
     /**
      * @var VismaPayPaymentReturn Class that handles module payment return
      */
-    public VismaPayPaymentReturn $paymentReturn;
+    public $paymentReturn;
 
     /**
      * Constructor for module instance.
@@ -59,7 +59,7 @@ class VismaPay extends PaymentModule
     {
         $this->name = 'vismapay';
         $this->tab = 'payments_gateways';
-        $this->version = '8.0.1';
+        $this->version = '8.0.3';
         $this->author = 'Visma';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -86,13 +86,13 @@ class VismaPay extends PaymentModule
      */
     public function install(): bool
     {
-        if (!(parent::install() &&
-            $this->registerHook('displayAdminOrderMain') &&
-            $this->registerHook('displayAdminOrderSide') &&
-            $this->registerHook('displayHeader') &&
-            $this->registerHook('paymentOptions') &&
-            $this->registerHook('paymentReturn') &&
-            include_once($this->getLocalPath() . 'sql/install.php'))
+        if (!(parent::install()
+            && $this->registerHook('displayAdminOrderMain')
+            && $this->registerHook('displayAdminOrderSide')
+            && $this->registerHook('displayHeader')
+            && $this->registerHook('paymentOptions')
+            && $this->registerHook('paymentReturn')
+            && include_once($this->getLocalPath() . 'sql/install.php'))
         ) {
             return false;
         }
@@ -180,9 +180,9 @@ class VismaPay extends PaymentModule
         $order = $params['order'];
 
         if (
-            $order->valid ||
-            $order->current_state == Configuration::get('VP_OS_AUTHORIZED') ||
-            $order->current_state == Configuration::get('PS_OS_OUTOFSTOCK')
+            $order->valid
+            || $order->current_state == Configuration::get('VP_OS_AUTHORIZED')
+            || $order->current_state == Configuration::get('PS_OS_OUTOFSTOCK')
         ) {
             $status = 'ok';
         } else {
@@ -206,6 +206,7 @@ class VismaPay extends PaymentModule
         }
 
         $this->context->smarty->assign('status', $status);
+
         return $this->display(__FILE__, 'payment_return.tpl');
     }
 

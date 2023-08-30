@@ -30,7 +30,7 @@ class VismaPayPaymentModuleFrontController extends ModuleFrontController
      */
     public function postProcess(): void
     {
-        /** @var VismaPay $module */
+        /* @var VismaPay $module */
         $this->module = $this->module;
 
         // Check that module is registered as payment module

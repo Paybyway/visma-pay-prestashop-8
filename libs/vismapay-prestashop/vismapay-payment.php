@@ -30,12 +30,12 @@ class VismaPayPayment
     /**
      * @var VismaPay Reference to the module instance
      */
-    private VismaPay $module;
+    private $module;
 
     /**
      * @var Context Payment option settings
      */
-    private Context $context;
+    private $context;
 
     /**
      * Constructor for handler.
@@ -203,7 +203,7 @@ class VismaPayPayment
         if ($discountAmount > 0) {
             $discountPretaxAmount = $this->floatToInt($summary['total_discounts_tax_exc']);
 
-             // Raw amount used to avoid rounding errors
+            // Raw amount used to avoid rounding errors
             $discountPretaxAmountRaw = $this->getRawDiscountPretaxAmount($summary['discounts']);
             $discountTaxAmountRaw = $summary['total_discounts'] - $discountPretaxAmountRaw;
             $discountTax = $discountPretaxAmountRaw > 0 ? round($discountTaxAmountRaw / $discountPretaxAmountRaw * 100) : 0;

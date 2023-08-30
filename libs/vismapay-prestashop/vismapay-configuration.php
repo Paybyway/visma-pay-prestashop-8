@@ -28,17 +28,17 @@ class VismaPayConfiguration
     /**
      * @var VismaPay Reference to the module instance
      */
-    private VismaPay $module;
+    private $module;
 
     /**
      * @var array Configuration keys, default values, validation rules and form settings
      */
-    private array $configurations;
+    private $configurations;
 
     /**
      * @var string Filename for translations
      */
-    private string $filename;
+    private $filename;
 
     /**
      * Constructor for handler.
@@ -83,8 +83,6 @@ class VismaPayConfiguration
 
         foreach ($this->configurations as $key => $configuration) {
             $value = Tools::getValue($key);
-            $valueType = gettype($configuration['defaultValue']);
-            settype($value, $valueType);
 
             if (isset($configuration['validationRules'])) {
                 foreach ($configuration['validationRules'] as $rule) {
@@ -156,7 +154,7 @@ class VismaPayConfiguration
      *
      * @return bool Whether or not validation succeeded
      */
-    private function checkValidationRule(string $rule, mixed $value): bool
+    private function checkValidationRule($rule, $value): bool
     {
         switch ($rule) {
             case 'required':
@@ -167,6 +165,24 @@ class VismaPayConfiguration
                 return true;
             case 'isConfigName':
                 if (!empty($value) && !Validate::isConfigName($value)) {
+                    return false;
+                }
+
+                return true;
+            case 'isBool':
+                if (!empty($value) && !Validate::isBool($value)) {
+                    return false;
+                }
+
+                return true;
+            case 'vpSendItems':
+                if (!empty($value) && !in_array($value, ['forced', 'enabled', 'disabled'])) {
+                    return false;
+                }
+
+                return true;
+            case 'vpEmbedded':
+                if (!empty($value) && !in_array($value, ['embed', 'separate', 'redirect'])) {
                     return false;
                 }
 
@@ -305,6 +321,9 @@ class VismaPayConfiguration
              */
             'VP_EMBEDDED' => [
                 'defaultValue' => 'embed',
+                'validationRules' => [
+                    'vpEmbedded',
+                ],
                 'input' => [
                     'type' => 'radio',
                     'label' => $this->module->l('Payment method display', $this->filename),
@@ -338,6 +357,9 @@ class VismaPayConfiguration
              */
             'VP_SELECT_WALLETS' => [
                 'defaultValue' => true,
+                'validationRules' => [
+                    'isBool',
+                ],
                 'input' => [
                     'type' => 'radio',
                     'is_bool' => true,
@@ -364,6 +386,9 @@ class VismaPayConfiguration
              */
             'VP_SELECT_BANKS' => [
                 'defaultValue' => true,
+                'validationRules' => [
+                    'isBool',
+                ],
                 'input' => [
                     'type' => 'radio',
                     'is_bool' => true,
@@ -390,6 +415,9 @@ class VismaPayConfiguration
              */
             'VP_SELECT_CCARDS' => [
                 'defaultValue' => true,
+                'validationRules' => [
+                    'isBool',
+                ],
                 'input' => [
                     'type' => 'radio',
                     'is_bool' => true,
@@ -416,6 +444,9 @@ class VismaPayConfiguration
              */
             'VP_SELECT_CINVOICES' => [
                 'defaultValue' => true,
+                'validationRules' => [
+                    'isBool',
+                ],
                 'input' => [
                     'type' => 'radio',
                     'is_bool' => true,
@@ -442,6 +473,9 @@ class VismaPayConfiguration
              */
             'VP_SELECT_LASKUYRITYKSELLE' => [
                 'defaultValue' => true,
+                'validationRules' => [
+                    'isBool',
+                ],
                 'input' => [
                     'type' => 'radio',
                     'is_bool' => true,
@@ -468,6 +502,9 @@ class VismaPayConfiguration
              */
             'VP_SEND_ITEMS' => [
                 'defaultValue' => 'enabled',
+                'validationRules' => [
+                    'vpSendItems',
+                ],
                 'input' => [
                     'type' => 'radio',
                     'is_bool' => false,
@@ -499,6 +536,9 @@ class VismaPayConfiguration
              */
             'VP_SEND_CONFIRMATION' => [
                 'defaultValue' => true,
+                'validationRules' => [
+                    'isBool',
+                ],
                 'input' => [
                     'type' => 'radio',
                     'is_bool' => true,
@@ -525,6 +565,9 @@ class VismaPayConfiguration
              */
             'VP_CLEAR_CART' => [
                 'defaultValue' => false,
+                'validationRules' => [
+                    'isBool',
+                ],
                 'input' => [
                     'type' => 'radio',
                     'is_bool' => true,

@@ -19,6 +19,19 @@
 <div class="clearfix">
     <form method="POST" action="{$action}" id="payment-form">
         {if !empty($paymentMethods)}
+            {foreach from=$paymentMethods.banks key=index item=method}
+                <div class="col-xs-12 col-md-6">
+                    <div class="vismapay-payment-method">
+                    <span class="custom-radio pull-xs-left vismapay-checkbox">
+                        <input class="ps-shown-by-js " type="radio" required id="pm-{$method.value}-{$index}" name="selected" value="{$method.value}" />
+                        <span></span>
+                    </span>
+                    <label for="pm-{$method.value}-{$index}">
+                        <span><img class="vismapay-pm-logo-pointer" src="{$imgDir}{$method.value}.png" alt="{$method.name}"/></span>
+                    </label>
+                    </div>
+                </div>
+            {/foreach}
             {foreach from=$paymentMethods.creditcards key=index item=method}
                 <div class="col-xs-12 col-md-6">
                     <div class="vismapay-payment-method">
@@ -33,19 +46,6 @@
                 </div>
             {/foreach}
             {foreach from=$paymentMethods.wallets key=index item=method}
-                <div class="col-xs-12 col-md-6">
-                    <div class="vismapay-payment-method">
-                    <span class="custom-radio pull-xs-left vismapay-checkbox">
-                        <input class="ps-shown-by-js " type="radio" required id="pm-{$method.value}-{$index}" name="selected" value="{$method.value}" />
-                        <span></span>
-                    </span>
-                    <label for="pm-{$method.value}-{$index}">
-                        <span><img class="vismapay-pm-logo-pointer" src="{$imgDir}{$method.value}.png" alt="{$method.name}"/></span>
-                    </label>
-                    </div>
-                </div>
-            {/foreach}
-            {foreach from=$paymentMethods.banks key=index item=method}
                 <div class="col-xs-12 col-md-6">
                     <div class="vismapay-payment-method">
                     <span class="custom-radio pull-xs-left vismapay-checkbox">
