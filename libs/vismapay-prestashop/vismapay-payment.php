@@ -313,6 +313,7 @@ class VismaPayPayment
     {
         $paymentMethods = [];
         $selectedPaymentMethod = Tools::getValue('selected', null);
+        $supportedLangauges = array('fi', 'en', 'sv', 'ru');
 
         if ($selectedPaymentMethod) { // Use one selected payment method
             $paymentMethods[] = $selectedPaymentMethod;
@@ -330,7 +331,11 @@ class VismaPayPayment
 
         $params = ['id_cart' => (int) $cart->id, 'key' => $cart->secure_key];
         $returnUrl = $this->context->link->getModuleLink($this->module->name, 'payment_return', $params, Configuration::get('PS_SSL_ENABLED'));
+        
         $lang = Tools::strtolower($this->context->language->iso_code);
+        if (!in_array($lang, $supportedLangauges)) {
+            $lang = 'en';
+        }
 
         return [
             'type' => 'e-payment',

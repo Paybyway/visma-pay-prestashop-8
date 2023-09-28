@@ -59,7 +59,7 @@ class VismaPay extends PaymentModule
     {
         $this->name = 'vismapay';
         $this->tab = 'payments_gateways';
-        $this->version = '8.0.3';
+        $this->version = '8.0.4';
         $this->author = 'Visma';
         $this->need_instance = 0;
         $this->bootstrap = true;
