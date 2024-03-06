@@ -72,6 +72,5 @@
                 </div>
             {/foreach}
         {/if}
-        <div class="clearfix col-md-12"></div>
     </form>
 </div>
