@@ -164,7 +164,7 @@ class VismaPayPayment
                 'title' => $product['name'],
                 'count' => $product['cart_quantity'],
                 'pretax_price' => $this->floatToInt($product['price']),
-                'tax' => round($product['rate'], 0),
+                'tax' => number_format($product['rate'], 2, '.', ''),
                 'price' => $this->floatToInt($product['price_wt']),
                 'type' => 1,
             ];
@@ -174,25 +174,25 @@ class VismaPayPayment
 
         // Add shipping cost as it's own product if there is one
         $carrier = new Carrier($cart->id_carrier);
-        $shippingCost = $this->floatToInt($cart->getPackageShippingCost($cart->id_carrier));
+        $shipping_address = new Address($cart->id_address_delivery);
 
-        if ($shippingCost > 0) {
-            $shippingPretaxCost = $this->floatToInt($cart->getPackageShippingCost($cart->id_carrier, false));
-            $shippingTaxAmount = $shippingCost - $shippingPretaxCost;
-            // Shipping tax might sometimes have a rounding error
-            $shippingTax = $shippingPretaxCost > 0 ? round($shippingTaxAmount / $shippingPretaxCost * 100) : 0;
+        $shippingCostInt = $this->floatToInt($cart->getPackageShippingCost($cart->id_carrier));
+
+        if ($shippingCostInt > 0) {
+            $shippingPretaxCostInt = $this->floatToInt($cart->getPackageShippingCost($cart->id_carrier, false));
+            $shippingTax = $carrier->getTaxesRate($shipping_address);
 
             $products[] = [
                 'id' => $carrier->id_reference,
                 'title' => $carrier->name,
                 'count' => 1,
-                'pretax_price' => $shippingPretaxCost,
-                'tax' => $shippingTax,
-                'price' => $shippingCost,
+                'pretax_price' => $shippingPretaxCostInt,
+                'tax' => number_format($shippingTax, 2, '.', ''),
+                'price' => $shippingCostInt,
                 'type' => 2,
             ];
 
-            $totalAmount += $shippingCost;
+            $totalAmount += $shippingCostInt;
         }
 
         // Add discount as it's own product if there is one
@@ -206,14 +206,14 @@ class VismaPayPayment
             // Raw amount used to avoid rounding errors
             $discountPretaxAmountRaw = $this->getRawDiscountPretaxAmount($summary['discounts']);
             $discountTaxAmountRaw = $summary['total_discounts'] - $discountPretaxAmountRaw;
-            $discountTax = $discountPretaxAmountRaw > 0 ? round($discountTaxAmountRaw / $discountPretaxAmountRaw * 100) : 0;
+            $discountTax = $discountPretaxAmountRaw > 0 ? $discountTaxAmountRaw / $discountPretaxAmountRaw * 100 : 0;
 
             $products[] = [
                 'id' => 1,
                 'title' => $this->module->l('Total discounts', 'vismapay-payment'),
                 'count' => 1,
                 'pretax_price' => -$discountPretaxAmount,
-                'tax' => $discountTax,
+                'tax' => number_format($discountTax, 2, '.', ''),
                 'price' => -$discountAmount,
                 'type' => 4,
             ];
@@ -283,6 +283,7 @@ class VismaPayPayment
         $address = new Address((int) $cart->id_address_invoice);
         $shippingAddress = new Address((int) $cart->id_address_delivery);
         $email = htmlspecialchars((new Customer((int) $cart->id_customer))->email);
+        $phone = $address->phone ?? $address->phone_mobile ?? '';
 
         return [
             'firstname' => htmlspecialchars($address->firstname),
@@ -299,6 +300,7 @@ class VismaPayPayment
             'shipping_address_city' => htmlspecialchars($shippingAddress->city),
             'shipping_address_zip' => htmlspecialchars($shippingAddress->postcode),
             'shipping_address_country' => htmlspecialchars($shippingAddress->country),
+            'phone' => preg_replace('/[^0-9+ ]/', '', $phone),
         ];
     }
 
