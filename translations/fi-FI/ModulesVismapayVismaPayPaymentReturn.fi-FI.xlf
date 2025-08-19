@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="ModulesVismapayVismaPayPaymentReturn.xlf" source-language="fi-FI" target-language="fi-FI" datatype="plaintext">
+    <body>
+      <trans-unit id="4095dcb477b11287d033ef3ca09916e6">
+        <source>3-D Secure was attempted but not supported by the card issuer or the card holder is not participating.</source>
+        <target>3-D Secure varmennusta yritettiin, mutta kortinmyöntäjä tai -haltija ei käytä varmennusta.</target>
+      </trans-unit>
+      <trans-unit id="30ad6c2ef79143832fdacd52d47ba1ea">
+        <source>3-D Secure was not used.</source>
+        <target>3-D Secure varmennusta ei käytetty.</target>
+      </trans-unit>
+      <trans-unit id="9010b4cc021c390eb7da7bb90a3d75aa">
+        <source>3-D Secure was used.</source>
+        <target>3-D Secure varmennettu tapahtuma.</target>
+      </trans-unit>
+      <trans-unit id="38dac3b3c120072a3abd29d8c51bac3d">
+        <source>3-D Secure: No connection to acquirer.</source>
+        <target>3-D Secure: Ei yhteyttä korttimaksujen prosessoijaan.</target>
+      </trans-unit>
+      <trans-unit id="d8d69d7c1e8e5efcadddd4283ad0b8d2">
+        <source>Authcode mismatch</source>
+        <target>Virhe tarkistesummassa</target>
+      </trans-unit>
+      <trans-unit id="f99c9b6eabba4cdfb635a8bfea743131">
+        <source>Card ISO 3166-1 country code: </source>
+        <target>Kortin ISO 3166-1 maakoodi: </target>
+      </trans-unit>
+      <trans-unit id="5c520b53771b83bfaeab699328693244">
+        <source>Check the status of the payment from Visma Pay merchant portal!</source>
+        <target>Tarkista maksun tila Visma Payn kauppiasportaalista!</target>
+      </trans-unit>
+      <trans-unit id="c7745561426cf3e42c39edb777680243">
+        <source>Client ISO 3166-1 country code: </source>
+        <target>Asiakkaan ISO 3166-1 maakoodi: </target>
+      </trans-unit>
+      <trans-unit id="bbdafe1c9b62bf20fdb6338520294ac2">
+        <source>Expired card.</source>
+        <target>Vanhentunut kortti.</target>
+      </trans-unit>
+      <trans-unit id="0db71da7150c27142eef9d22b843b4a9">
+        <source>For any questions or for further information, please contact our</source>
+        <target>Mikäli sinulla on kysyttävää, otathan yhteyttä</target>
+      </trans-unit>
+      <trans-unit id="e27b97d7f3f0d61d9c6ed3279f9d2014">
+        <source>General decline. The card holder should contact the issuer to find out why the payment failed.</source>
+        <target>Yleinen hylkäys. Kortinhaltijan tulisi ottaa yhteyttä kortinmyöntäjään selvittääkseen miksi maksu epäonnistui.</target>
+      </trans-unit>
+      <trans-unit id="0e56ab30435392dcd2f9cad83d616e11">
+        <source>Insufficient funds. The card holder should verify that there is balance on the account and the online payments are actived.</source>
+        <target>Riittämättömät varat. Kortinhaltijan tulisi tarkistaa, että kortilla on katetta ja verkkomaksaminen on aktivoitu kortille.</target>
+      </trans-unit>
+      <trans-unit id="8d3efeb3b0401e92ce133ae70d6c48f0">
+        <source>NOTE !! Paid sum does not match order sum, verify order contents from the customer or Visma Pay merchant-portal.</source>
+        <target>HUOM !! Maksettu summa ei vastannut ostoskorin summaa, varmista tilauksen sisältö asiakkaalta tai Visma Payn kauppiasportaalista.</target>
+      </trans-unit>
+      <trans-unit id="2d9f8f88665ac5821d59d3bbb770daf1">
+        <source>No error for code</source>
+        <target>Ei virhekuvausta virhekoodille</target>
+      </trans-unit>
+      <trans-unit id="eb7c0bb7842a407746c010fb059e06b2">
+        <source>Order number mismatch</source>
+        <target>Tilausnumerovirhe</target>
+      </trans-unit>
+      <trans-unit id="3df406952f3377a5e419d4d63abb1b1d">
+        <source>Order number:</source>
+        <target>Tilausnumero:</target>
+      </trans-unit>
+      <trans-unit id="36ec50c0e914dd2fb48a1b27540512ce">
+        <source>Payment accepted.</source>
+        <target>Maksu hyväksytty.</target>
+      </trans-unit>
+      <trans-unit id="b8b8e6625fda576ce99df95a791b6747">
+        <source>Payment authorized.</source>
+        <target>Maksu varmennettu.</target>
+      </trans-unit>
+      <trans-unit id="a6a5ee78f8ba890b37c757f68e4c4432">
+        <source>Payment failed.</source>
+        <target>Maksu epäonnistui.</target>
+      </trans-unit>
+      <trans-unit id="dc67ef20ee7ca7f193abe3a757bea98c">
+        <source>Payment method: </source>
+        <target>Maksutapa: </target>
+      </trans-unit>
+      <trans-unit id="59ba9b5d6996bf4d8226470ac4c9194c">
+        <source>Restricted card. The card holder should verify that the online payments are actived.</source>
+        <target>Rajoitettu kortti. Kortinhaltijan tulisi varmistaa, että verkkomaksaminen on aktivoitu kortille.</target>
+      </trans-unit>
+      <trans-unit id="4107d6702490c695652348fd03614cec">
+        <source>The card is reported lost or stolen.</source>
+        <target>Kortti on ilmoitettu kadonneeksi tai varastetuksi.</target>
+      </trans-unit>
+      <trans-unit id="477c104f3689968486b9471c756e9f65">
+        <source>Timeout communicating with the acquirer. The payment should be tried again later.</source>
+        <target>Yhteysongelma korttimaksujen prosessoijaan. Maksua tulisi yrittää uudelleen.</target>
+      </trans-unit>
+      <trans-unit id="89703673bea2c98d176e57a510360649">
+        <source>Withdrawal amount limit exceeded.</source>
+        <target>Kortin maksuraja ylittyi.</target>
+      </trans-unit>
+      <trans-unit id="bddd470742bc2329733e489ed05a8ba1">
+        <source>Your order is complete.</source>
+        <target>Tilauksesi on käsitelty.</target>
+      </trans-unit>
+      <trans-unit id="15d18c17d7aef219c342bb0d81e823ab">
+        <source>Your order will be shipped as soon as possible.</source>
+        <target>Tilauksesi lähetetään mahdollisimman nopeasti.</target>
+      </trans-unit>
+      <trans-unit id="2187033fba33180a416710defda3573b">
+        <source>Your payment was not accepted. If you think this is an error, contact our support</source>
+        <target>Maksutapahtumaa ei suoritettu onnistuneesti. Jos luulette tämän olevan virhe, olkaa hyvä ja ottakaa yhteyttä asiakaspalveluumme.</target>
+      </trans-unit>
+      <trans-unit id="64430ad2835be8ad60c59e7d44e4b0b1">
+        <source>customer support</source>
+        <target>asiakaspalveluumme</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

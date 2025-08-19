@@ -24,8 +24,14 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
-include_once _PS_MODULE_DIR_ . 'vismapay/libs/vismapay-prestashop/loader.php';
-include_once _PS_MODULE_DIR_ . 'vismapay/libs/vismapay-php-lib/visma_pay_loader.php';
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
+}
+
+use VismaPayModule\Helper\VismaPayConfiguration;
+use VismaPayModule\Helper\VismaPayPayment;
+use VismaPayModule\Helper\VismaPayPaymentOptions;
+use VismaPayModule\Helper\VismaPayPaymentReturn;
 
 /**
  * Class for module instance.
@@ -59,7 +65,7 @@ class VismaPay extends PaymentModule
     {
         $this->name = 'vismapay';
         $this->tab = 'payments_gateways';
-        $this->version = '8.0.6';
+        $this->version = '8.1.0';
         $this->author = 'Visma';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -68,9 +74,9 @@ class VismaPay extends PaymentModule
 
         parent::__construct(); // Must be called before using translations
 
-        $this->displayName = $this->l('Visma Pay');
-        $this->description = $this->l('Accept e-payments with Visma Pay payment gateway.');
-        $this->confirmUninstall = $this->l('Are you sure you want to uninstall?');
+        $this->displayName = $this->trans('Visma Pay', [], 'Modules.Vismapay.Vismapay');
+        $this->description = $this->trans('Accept e-payments with Visma Pay payment gateway.', [], 'Modules.Vismapay.Vismapay');
+        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall?', [], 'Modules.Vismapay.Vismapay');
 
         // Services
         $this->configuration = new VismaPayConfiguration($this);
@@ -91,13 +97,15 @@ class VismaPay extends PaymentModule
             && $this->registerHook('displayAdminOrderSide')
             && $this->registerHook('displayHeader')
             && $this->registerHook('paymentOptions')
-            && $this->registerHook('paymentReturn')
-            && include_once($this->getLocalPath() . 'sql/install.php'))
+            && $this->registerHook('displayPaymentReturn')
+            && include_once ($this->getLocalPath() . 'sql/install.php'))
         ) {
             return false;
         }
 
         $this->configuration->initAllConfigurationValues();
+
+        Tools::clearSf2Cache();
 
         return true;
     }
@@ -109,7 +117,7 @@ class VismaPay extends PaymentModule
      */
     public function uninstall(): bool
     {
-        if (!(parent::uninstall() && include_once($this->getLocalPath() . 'sql/uninstall.php'))) {
+        if (!(parent::uninstall() && include_once ($this->getLocalPath() . 'sql/uninstall.php'))) {
             return false;
         }
 
@@ -132,7 +140,7 @@ class VismaPay extends PaymentModule
 
             if (!$validationErrors) {
                 $this->configuration->updateAllConfigurationValues();
-                $output = $this->displayConfirmation($this->l('Settings updated'));
+                $output = $this->displayConfirmation($this->trans('Settings updated', [], 'Modules.Vismapay.Vismapay'));
             } else {
                 $output = $validationErrors;
             }
@@ -191,8 +199,8 @@ class VismaPay extends PaymentModule
 
         $oldCart = new Cart(Order::getCartIdStatic((int) $order->id));
         $cartId = (int) $oldCart->id;
-        $query = Db::getInstance()->getRow('SELECT order_number FROM ' . _DB_PREFIX_ . "vismapay_order WHERE cart_id=$cartId");
-        $orderNumber = $query['order_number'];
+        $query = Db::getInstance()->getRow('SELECT order_number FROM ' . _DB_PREFIX_ . 'vismapay_order WHERE cart_id=' . $cartId);
+        $orderNumber = is_array($query) ? ($query['order_number'] ?? '') : '';
 
         $upOrder = new Order($order->id);
         $payments = $upOrder->getOrderPaymentCollection();
@@ -217,11 +225,11 @@ class VismaPay extends PaymentModule
      *
      * @return string|null Admin order main HTML
      */
-    public function hookdisplayAdminOrderMain(array $params): ?string
+    public function hookDisplayAdminOrderMain(array $params): ?string
     {
         $order = new Order((int) $params['id_order']);
         $cartId = (int) $order->id_cart;
-        $rows = Db::getInstance()->executeS('SELECT `date`, `message` FROM ' . _DB_PREFIX_ . "vismapay_order_message WHERE cart_id=$cartId");
+        $rows = Db::getInstance()->executeS('SELECT `date`, `message` FROM ' . _DB_PREFIX_ . 'vismapay_order_message WHERE cart_id=' . $cartId);
 
         if (!is_array($rows)) {
             return null;
@@ -263,63 +271,16 @@ class VismaPay extends PaymentModule
             return null;
         }
 
-        $output = '';
-        $showButton = true;
+        $twig = method_exists($this, 'getTwig') ? $this->getTwig() : $this->get('twig');
 
-        if (Tools::isSubmit('vismapay_settlement')) {
-            $cartId = (int) $order->id_cart;
-            $query = Db::getInstance()->getRow('SELECT order_number FROM ' . _DB_PREFIX_ . "vismapay_order WHERE cart_id=$cartId");
+        return $twig->render('@Modules/vismapay/views/templates/admin/vismapay_settle_base.html.twig', [
+            'orderId' => $order->id,
+            'logoUrl' => __PS_BASE_URI__ . 'modules/vismapay/views/img/logo.gif',
+        ]);
+    }
 
-            $orderNumber = $query['order_number'];
-            $privatekey = Configuration::get('VP_PRIVATE_KEY');
-            $apikey = Configuration::get('VP_API_KEY');
-            $api = new Visma\VismaPay($apikey, $privatekey);
-
-            try {
-                $settlement = $api->settlePayment($orderNumber);
-
-                $returnCode = $settlement->result;
-
-                switch ($returnCode) {
-                    case 0:
-                        $date = date('Y-m-d H:i:s');
-                        $message = $this->l('Payment settled.');
-                        Db::getInstance()->Execute('INSERT INTO ' . _DB_PREFIX_ . "vismapay_order_message (`cart_id`, `date`, `message`) VALUES ($cartId, '$date', '$message')");
-                        $order->setCurrentState(Configuration::get('PS_OS_PAYMENT'));
-                        $this->get('session')->getFlashBag()->add('success', $message);
-                        $urlResend = $this->get('router')->generate('admin_orders_view', ['orderId' => (int) $order->id]);
-                        Tools::redirectAdmin($urlResend);
-                        break;
-                    case 1:
-                        $message = $this->l('Request failed. Validation failed.');
-                        break;
-                    case 2:
-                        $message = $this->l('Payment cannot be settled. Either the payment has already been settled or the payment gateway refused to settle payment for given transaction.');
-                        break;
-                    case 3:
-                        $message = $this->l('Payment cannot be settled. Transaction for given order number was not found.');
-                        break;
-                    default:
-                        $message = $this->l('Unexpected error during the settlement.');
-                        break;
-                }
-            } catch (Visma\VismaPayException $e) {
-                $message = $e->getMessage();
-            } catch (\Exception $e) {
-                PrestaShopLogger::addLog('Something went wrong in settling Visma Pay payment. Details: ' . $e->getMessage(), 3, null, null, null, true);
-            }
-
-            $this->get('session')->getFlashBag()->add('error', $message);
-            $urlResend = $this->get('router')->generate('admin_orders_view', ['orderId' => (int) $order->id]);
-
-            Tools::redirectAdmin($urlResend);
-        }
-
-        $this->context->smarty->assign('message', $output);
-        $logoUrl = __PS_BASE_URI__ . 'modules/vismapay/views/img/logo.gif';
-        $this->context->smarty->assign('logo_url', $logoUrl);
-        $this->context->smarty->assign('show_button', $showButton);
-
-        return $this->display(__FILE__, 'settlement.tpl');
+    public function isUsingNewTranslationSystem()
+    {
+        return true;
     }
 }

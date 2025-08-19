@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="ModulesVismapayVismaPayOrderController.xlf" source-language="fi-FI" target-language="fi-FI" datatype="plaintext">
+    <body>
+      <trans-unit id="1da2e8106b3a2171fbb7193a24b91526">
+        <source>An unexpected error occurred.</source>
+        <target>Tapahtui odottamaton virhe.</target>
+      </trans-unit>
+      <trans-unit id="7d0bc826fa6a7a51e7a2cbc96471ef4c">
+        <source>Invalid or expired form token.</source>
+        <target>Lomaketunniste on virheellinen tai vanhentunut.</target>
+      </trans-unit>
+      <trans-unit id="149ad34562bd32ca88aac01cd023fce5">
+        <source>Order not found.</source>
+        <target>Tilausta ei löytynyt.</target>
+      </trans-unit>
+      <trans-unit id="ead46e9a670a3af792e2362a003d6b60">
+        <source>Order number not found for settlement.</source>
+        <target>Tilausnumeroa ei löytynyt veloitusta varten.</target>
+      </trans-unit>
+      <trans-unit id="69da8ab1c1ab4b5eaef6194d59636fd2">
+        <source>Payment cannot be settled. Either the payment has already been settled or the payment gateway refused to settle payment for given transaction.</source>
+        <target>Maksua ei voitu veloittaa. Joko maksu on jo veloitettu, tai luottolaitos hylkäsi veloituspyynnön.</target>
+      </trans-unit>
+      <trans-unit id="d9ef63497b5414da95d3b2de106e83a0">
+        <source>Payment cannot be settled. Transaction for given order number was not found.</source>
+        <target>Maksua ei voitu veloittaa. Maksutapahtumaa ei löytynyt annetulla tilaustunnuksella.</target>
+      </trans-unit>
+      <trans-unit id="316cf0d5ac438c645dcf70dfa6806505">
+        <source>Payment settled.</source>
+        <target>Maksu veloitettu.</target>
+      </trans-unit>
+      <trans-unit id="6d65898cca3cd7b1857a228d02449d6a">
+        <source>Request failed. Validation failed.</source>
+        <target>Pyyntö epäonnistui. Validointivirhe.</target>
+      </trans-unit>
+      <trans-unit id="063ec63e104c1a624da5e5b30b483bd7">
+        <source>Unexpected error during the settlement.</source>
+        <target>Odottamaton virhe veloitusta tehdessä.</target>
+      </trans-unit>
+      <trans-unit id="0d8cc79a7e384d2f4aa62b9436b0975a">
+        <source>Visma Pay module is disabled.</source>
+        <target>Visma Pay -lisäosa on poistettu käytöstä.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

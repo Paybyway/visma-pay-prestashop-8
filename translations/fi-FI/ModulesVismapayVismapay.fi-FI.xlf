@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="ModulesVismapayVismapay.xlf" source-language="fi-FI" target-language="fi-FI" datatype="plaintext">
+    <body>
+      <trans-unit id="06771bab1a7596a1e2731bb9820aa2c5">
+        <source>Accept e-payments with Visma Pay payment gateway.</source>
+        <target>Visma Pay tarjoaa kaikki yleisimmät maksutavat verkkokauppaasi.</target>
+      </trans-unit>
+      <trans-unit id="876f23178c29dc2552c0b48bf23cd9bd">
+        <source>Are you sure you want to uninstall?</source>
+        <target>Oletko varma, että haluat poistaa moduulin?</target>
+      </trans-unit>
+      <trans-unit id="c888438d14855d7d96a2724ee9c306bd">
+        <source>Settings updated</source>
+        <target>Asetukset päivitetty</target>
+      </trans-unit>
+      <trans-unit id="9e2abe639b1f36d24a4ae959b4555656">
+        <source>Visma Pay</source>
+        <target>Visma Pay</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

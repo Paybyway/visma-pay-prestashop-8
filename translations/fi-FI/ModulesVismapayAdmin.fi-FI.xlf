@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin-dev" source-language="fi-FI" target-language="fi-FI" datatype="plaintext">
+    <body>
+      <trans-unit id="b79ab6dfee0366d5f1fff91eb9e204d6">
+        <source>Settle payment</source>
+        <target>Veloita maksu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b5491afdbc19b0801efe863d57ef6ff8">
+        <source>Visma Pay payment settlement</source>
+        <target>Visma Pay maksun veloittaminen</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

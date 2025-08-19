@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="ModulesVismapayVismaPayConfiguration.xlf" source-language="fi-FI" target-language="fi-FI" datatype="plaintext">
+    <body>
+      <trans-unit id="62c7594948c1231bbae9f948b1535b7e">
+        <source>Api key</source>
+        <target>Yksityinen rajapinta-avain</target>
+      </trans-unit>
+      <trans-unit id="0927b0b8a7a95b5f02808e24b954e3e3">
+        <source>Banks</source>
+        <target>Pankit</target>
+      </trans-unit>
+      <trans-unit id="5bbdc3b29ba08582aca41556306aa602">
+        <source>Choose how payment methods are displayed</source>
+        <target>Ota upotetut maksupainikkeet käyttöön</target>
+      </trans-unit>
+      <trans-unit id="f64f0c5390b2cd09eb115f468fc00590">
+        <source>Clear customer's cart when they are redirected to pay</source>
+        <target>Tyhjennä ostoskori maksamaan siirtymisen yhteydessä</target>
+      </trans-unit>
+      <trans-unit id="4d3df28e3e68ed692ae51475bbe0860d">
+        <source>Credit cards</source>
+        <target>Korttimaksut</target>
+      </trans-unit>
+      <trans-unit id="6624c2c1512c438ccb4adcfc4febf8c4">
+        <source>Credit invoices</source>
+        <target>Luottolaskut</target>
+      </trans-unit>
+      <trans-unit id="b9f5c797ebbf55adccdd8539a65a0241">
+        <source>Disabled</source>
+        <target>Pois käytöstä</target>
+      </trans-unit>
+      <trans-unit id="f210e321d18ec88515188cb044834bc5">
+        <source>Embed</source>
+        <target>Upotus</target>
+      </trans-unit>
+      <trans-unit id="83d4765c69f9313cd1bf88398588fac8">
+        <source>Embed: After choosing Visma Pay on the checkout-page, the payment methods and their logos are then shown.</source>
+        <target>Upotus: Kun kassasivulla valitaan maksutavaksi Visma Pay, niin tulevat kauppiastilille aktivoidut maksutavat näkyviin logojensa kera.</target>
+      </trans-unit>
+      <trans-unit id="b11216df604286d869f4a7adcd4dc361">
+        <source>Enable bank payments in the Visma Pay payment page.</source>
+        <target>Ota verkkopankkipainikkeet käyttöön maksusivulla.</target>
+      </trans-unit>
+      <trans-unit id="5f32937e9f12fdccb3fd3f4fcd074b07">
+        <source>Enable credit cards in the Visma Pay payment page.</source>
+        <target>Ota korttimaksut käyttöön maksusivulla.</target>
+      </trans-unit>
+      <trans-unit id="a54c2e46aedc8b32d6ef324dc7b7bc7c">
+        <source>Enable credit invoices in the Visma Pay payment page.</source>
+        <target>Ota lasku- ja osamaksu-maksutavat käyttöön maksusivulla.</target>
+      </trans-unit>
+      <trans-unit id="20eca727b146a22947b8f69a07963603">
+        <source>Enable wallet services in the Visma Pay payment page.</source>
+        <target>Ota lompakkopalvelut käyttöön maksusivulla.</target>
+      </trans-unit>
+      <trans-unit id="fc2b4eb2c692b7a15e826678ba481033">
+        <source>Enable, disable or force sending product details to Visma Pay, should normally be Enable.</source>
+        <target>Ota käyttöön, poista päältä tai pakota tuote-erittelyn lähetys. Yleensä arvon tulisi olla Käytössä.</target>
+      </trans-unit>
+      <trans-unit id="00d23a76e43b46dae9ec7aa9dcbebb32">
+        <source>Enabled</source>
+        <target>Käytössä</target>
+      </trans-unit>
+      <trans-unit id="dc2eb84d1f952ad0e6b58014aabd616a">
+        <source>Forced</source>
+        <target>Pakota</target>
+      </trans-unit>
+      <trans-unit id="1740b025f40f2d343760055666445a2f">
+        <source>Order number prefix</source>
+        <target>Tilaustunnuksen etuliite</target>
+      </trans-unit>
+      <trans-unit id="75dc895faf2eb3c6c3b4649cc96a43af">
+        <source>Payment method display</source>
+        <target>Maksutapojen näyttäminen</target>
+      </trans-unit>
+      <trans-unit id="6eb9040e470e8018db394832a528f56a">
+        <source>Private key</source>
+        <target>Yksityinen salausavain</target>
+      </trans-unit>
+      <trans-unit id="4202ef115ebede37eb22297113f5fb32">
+        <source>Redirect</source>
+        <target>Pois käytöstä</target>
+      </trans-unit>
+      <trans-unit id="44868adc31b7bb406c2824948469f7cd">
+        <source>Redirect: After choosing Visma Pay at the checkout-page the customer is redirected to the Visma Pay payment-page. </source>
+        <target>Pois käytöstä: Kassasivulla voidaan valita maksutavaksi Visma Pay. Asiakas ohjataan Visma Payn maksusivulle valitsemaan maksutapa.</target>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Tallenna</target>
+      </trans-unit>
+      <trans-unit id="25e257a4e6a3fdb4ab107d055c26030a">
+        <source>Send Visma Pay payment confirmation</source>
+        <target>Lähetä maksuvahvistus</target>
+      </trans-unit>
+      <trans-unit id="4d041a970668315dd1eedf4852acb558">
+        <source>Send a payment confirmation to the customer's email from Visma Pay.</source>
+        <target>Lähetä asiakkaan sähköpostiin Visma Payn maksuvahvistus.</target>
+      </trans-unit>
+      <trans-unit id="21cc25b16f564443ba65e9fadf966a0a">
+        <source>Send product details to Visma Pay</source>
+        <target>Lähetä tuote-erittely maksurajapintaan</target>
+      </trans-unit>
+      <trans-unit id="8244cf379b2a4a11d4706e53f510a5f6">
+        <source>Separate</source>
+        <target>Eritelty</target>
+      </trans-unit>
+      <trans-unit id="b9c857b6d9c9a92f2e17bdaa29c518f1">
+        <source>Separate: All the payment methods on your Visma Pay merchant account are separated as their own payment method on the checkout-page.</source>
+        <target>Eritelty: Kaikki Visma Pay kauppiastilille aktivoidut maksutavat näkyvät verkkokaupan kassasivulla erillisinä maksutapoina.</target>
+      </trans-unit>
+      <trans-unit id="f4f70727dc34561dfde1a3c529b6205c">
+        <source>Settings</source>
+        <target>Asetukset</target>
+      </trans-unit>
+      <trans-unit id="85464ed9122a023feb5a47bfa2c6d104">
+        <source>Wallets</source>
+        <target>Lompakkopalvelut</target>
+      </trans-unit>
+      <trans-unit id="07aa80788464a88376ef8094e434763d">
+        <source>When this option is enabled, the customer's shopping cart will be emptied when they are redirected to pay for their order. The cart will be restored if the customer cancels their payment or the payment fails.</source>
+        <target>Tämän asetuksen ollessa käytössä tyhjennetään asiakkaan ostokori, kun asiakas siirtyy maksamaan tilaustaan. Asetuksella voidaan vähentää virheitä tilanteissa, joissa asiakas yrittää samanaikaisesti tehdä useaa maksua samalla ostoskorilla. Ostoskorin sisältö palautetaan, jos asiakas keskeyttää maksamisen tai maksun veloitus epäonnistuu.</target>
+      </trans-unit>
+      <trans-unit id="998b344cff693ad388a14ba89b1523c7">
+        <source>is invalid</source>
+        <target>on virheellinen</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

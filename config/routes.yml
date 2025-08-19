@@ -1,0 +1,8 @@
+vismapay_settle:
+  path: /vismapay/settle/{orderId}
+  methods: [ POST ]
+  defaults:
+    _controller: VismaPayModule\Controller\Admin\VismaPayOrderController::settleAction
+    _legacy_controller: AdminOrders
+  requirements:
+    orderId: \d+

@@ -1,0 +1,63 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "9da1d0d4c5edcb0da532b1014a9bab25",
+    "packages": [
+        {
+            "name": "visma-pay/visma-pay",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Paybyway/visma-pay-php-lib.git",
+                "reference": "11232a94f7fa347dfc227a8c977bc00c9f89eb32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Paybyway/visma-pay-php-lib/zipball/11232a94f7fa347dfc227a8c977bc00c9f89eb32",
+                "reference": "11232a94f7fa347dfc227a8c977bc00c9f89eb32",
+                "shasum": ""
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.6.0",
+                "phpunit/phpunit": "^10.0.0 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "VismaPay": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Visma Pay",
+                    "homepage": "https://vismapay.fi"
+                }
+            ],
+            "description": "Visma Pay PHP Library",
+            "homepage": "https://vismapay.fi",
+            "keywords": [
+                "VISMA",
+                "payment",
+                "visma pay"
+            ],
+            "support": {
+                "issues": "https://github.com/Paybyway/visma-pay-php-lib/issues",
+                "source": "https://github.com/Paybyway/visma-pay-php-lib/tree/1.0.2"
+            },
+            "time": "2025-03-04T09:48:55+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
+}

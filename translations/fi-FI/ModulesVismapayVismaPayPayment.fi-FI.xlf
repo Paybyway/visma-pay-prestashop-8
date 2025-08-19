@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="ModulesVismapayVismaPayPayment.xlf" source-language="fi-FI" target-language="fi-FI" datatype="plaintext">
+    <body>
+      <trans-unit id="3a59b96249019bd555d4ed25049a7417">
+        <source>Payment failed, please try again.</source>
+        <target>Maksu epäonnistui, yritä uudelleen.</target>
+      </trans-unit>
+      <trans-unit id="0c675d460a04acc1c5874b1a1fc6fcaf">
+        <source>Payment method is not available.</source>
+        <target>Maksutapa ei ole käytettävissä.</target>
+      </trans-unit>
+      <trans-unit id="b76c1a1463e45cece931ef4467c0bdf8">
+        <source>Total discounts</source>
+        <target>Alennukset yhteensä</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

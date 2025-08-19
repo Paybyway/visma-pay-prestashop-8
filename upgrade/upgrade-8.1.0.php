@@ -1,4 +1,6 @@
-{**
+<?php
+
+/**
  * Copyright since 2007 PrestaShop SA and Contributors
  * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
@@ -15,7 +17,14 @@
  * @author    PrestaShop SA and Contributors <contact@prestashop.com>
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
- *}
-<section>
-    <p><span>{l s='After placing the order you will be redirected to Visma Pay to choose your payment method.' d='Modules.Vismapay.VismaPayPaymentOptions'}</span></p>
-</section>
+ */
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
+function upgrade_module_8_1_0($module)
+{
+    Tools::clearSf2Cache();
+
+    return true;
+}

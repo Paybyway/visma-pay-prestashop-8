@@ -1,4 +1,6 @@
-{**
+<?php
+
+/**
  * Copyright since 2007 PrestaShop SA and Contributors
  * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
@@ -15,7 +17,25 @@
  * @author    PrestaShop SA and Contributors <contact@prestashop.com>
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
- *}
-<section>
-    <p><span>{l s='After placing the order you will be redirected to Visma Pay to choose your payment method.' d='Modules.Vismapay.VismaPayPaymentOptions'}</span></p>
-</section>
+ */
+
+declare(strict_types=1);
+
+namespace VismaPayModule\Twig\Runtime;
+
+use VismaPayModule\Service\SettlementFormRenderer;
+
+class SettlementFormRuntime
+{
+    private $renderer;
+
+    public function __construct(SettlementFormRenderer $renderer)
+    {
+        $this->renderer = $renderer;
+    }
+
+    public function render(int $orderId): string
+    {
+        return $this->renderer->render($orderId);
+    }
+}

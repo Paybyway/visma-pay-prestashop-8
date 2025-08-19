@@ -2,7 +2,7 @@
 <module>
     <name>vismapay</name>
     <displayName><![CDATA[Visma Pay]]></displayName>
-    <version><![CDATA[8.0.6]]></version>
+    <version><![CDATA[8.1.0]]></version>
     <description><![CDATA[Accept e-payments with Visma Pay payment gateway.]]></description>
     <author><![CDATA[Visma]]></author>
     <tab><![CDATA[payments_gateways]]></tab>

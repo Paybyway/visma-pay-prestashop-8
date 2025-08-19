@@ -33,7 +33,7 @@ class VismaPayPayment_ReturnModuleFrontController extends ModuleFrontController
         /* @var VismaPay $module */
         $this->module = $this->module;
 
-        if ($this->module->paymentReturn->validateRequest()) {
+        if (!$this->module->paymentReturn->validateRequest()) {
             $url = $this->context->link->getPageLink(
                 'cart',
                 null,
@@ -41,16 +41,16 @@ class VismaPayPayment_ReturnModuleFrontController extends ModuleFrontController
                 ['action' => 'show']
             );
             $this->context->smarty->assign('vp_link', $url);
-            $this->context->smarty->assign('vp_error', $this->module->l('Payment failed.', 'payment_return'));
+            $this->context->smarty->assign('vp_error', $this->module->getTranslator()->trans('Payment failed.', [], 'Modules.Vismapay.VismaPayPaymentReturn'));
             $this->setTemplate('module:vismapay/views/templates/front/payment_error.tpl');
         } else {
-            $returnCode = (int) Tools::getValue('RETURN_CODE');
+            $returnCode = (string) Tools::getValue('RETURN_CODE');
             $cartId = (int) Tools::getValue('id_cart');
             $isSettled = (bool) Tools::getValue('SETTLED');
             $moduleId = (int) $this->module->id;
             $cartSecureKey = Tools::getValue('key');
 
-            if ($returnCode === 0) {
+            if ($returnCode === '0') {
                 if ($errorMessage = $this->module->paymentReturn->checkAuthcode()) {
                     $this->module->paymentReturn->updateOrderFailStatus($errorMessage);
                 } elseif ($errorMessage = $this->module->paymentReturn->checkOrderNumber()) {
@@ -65,10 +65,23 @@ class VismaPayPayment_ReturnModuleFrontController extends ModuleFrontController
                     }
                 }
 
-                Tools::redirectLink(__PS_BASE_URI__ . "order-confirmation.php?key=$cartSecureKey&id_cart=$cartId&id_module=$moduleId");
+                $orderConfirmationUrl = $this->context->link->getPageLink(
+                    'order-confirmation',
+                    null,
+                    $this->context->language->id,
+                    [
+                        'id_cart' => $cartId,
+                        'id_module' => $moduleId,
+                        'key' => $cartSecureKey,
+                    ]
+                );
+
+                Tools::redirect(
+                    $orderConfirmationUrl
+                );
             } else {
                 if ((bool) Configuration::get('VP_CLEAR_CART')) {
-                    $this->module->paymentReturn->clearCart($cartId);
+                    $this->module->paymentReturn->restoreCart($cartId);
                 }
 
                 $returnFailedMessage = $this->module->paymentReturn->getFailedReturnMessage();
@@ -81,7 +94,7 @@ class VismaPayPayment_ReturnModuleFrontController extends ModuleFrontController
                     ['action' => 'show']
                 );
                 $this->context->smarty->assign('vp_link', $url);
-                $this->context->smarty->assign('vp_error', $this->module->l('Payment failed.', 'payment_return'));
+                $this->context->smarty->assign('vp_error', $this->module->getTranslator()->trans('Payment failed.', [], 'Modules.Vismapay.VismaPayPaymentReturn'));
                 $this->setTemplate('module:vismapay/views/templates/front/payment_error.tpl');
             }
         }

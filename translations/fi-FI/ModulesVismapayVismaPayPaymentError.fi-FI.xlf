@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="ModulesVismapayVismaPayPaymentError.xlf" source-language="fi-FI" target-language="fi-FI" datatype="plaintext">
+    <body>
+      <trans-unit id="80a8bc6dd30c0563d1efa02f0b4f8a5c">
+        <source>Back to cart.</source>
+        <target>Takaisin ostoskoriin.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

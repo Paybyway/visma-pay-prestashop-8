@@ -17,10 +17,10 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
  *}
 {if $status == 'ok'}
-    <p>{l s='Your order is complete.' mod='vismapay'}
-        <br /><br /><span class="font-weight-bold">{l s='Your order will be shipped as soon as possible.' mod='vismapay'}</span>
-        <br /><br />{l s='For any questions or for further information, please contact our' mod='vismapay'} <a href="{$link->getPageLink('contact', true)}">{l s='customer support' mod='vismapay'}</a>.
+    <p>{l s='Your order is complete.' d='Modules.Vismapay.VismaPayPaymentReturn'}
+        <br /><br /><span class="font-weight-bold">{l s='Your order will be shipped as soon as possible.' d='Modules.Vismapay.VismaPayPaymentReturn'}</span>
+        <br /><br />{l s='For any questions or for further information, please contact our' d='Modules.Vismapay.VismaPayPaymentReturn'} <a href="{$link->getPageLink('contact', true)}">{l s='customer support' d='Modules.Vismapay.VismaPayPaymentReturn'}</a>.
     </p>
 {else}
-    <p class="alert alert-warning warning">{l s='Your payment was not accepted. If you think this is an error, contact our support' mod='vismapay'}</p>
+    <p class="alert alert-warning warning">{l s='Your payment was not accepted. If you think this is an error, contact our support' d='Modules.Vismapay.VismaPayPaymentReturn'}</p>
 {/if}

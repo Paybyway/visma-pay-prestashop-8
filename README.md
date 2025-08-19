@@ -1,4 +1,4 @@
-# Visma Pay for PrestaShop 8
+# Visma Pay for PrestaShop 8 and PrestaShop 9
 
 See Visma Pay documentation: https://www.vismapay.com/docs
 

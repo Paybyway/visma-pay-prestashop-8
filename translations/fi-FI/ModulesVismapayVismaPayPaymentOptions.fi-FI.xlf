@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="ModulesVismapayVismaPayPaymentOptions.xlf" source-language="fi-FI" target-language="fi-FI" datatype="plaintext">
+    <body>
+      <trans-unit id="dd964ee3c68c872e77b21545e67ae87e">
+        <source>After placing the order you will be redirected to Visma Pay to choose your payment method.</source>
+        <target>Tilauksen tekemisen jälkeen sinut ohjataan Visma Pay -sivulle valitsemaan maksutapa.</target>
+      </trans-unit>
+      <trans-unit id="c418eca777d7b410db8e023991cebab0">
+        <source>Visma Pay - internet banking, credit cards, credit invoices and wallet services</source>
+        <target>Visma Pay - verkkopankit, korttimaksut, luottolaskut ja lompakkopalvelut</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

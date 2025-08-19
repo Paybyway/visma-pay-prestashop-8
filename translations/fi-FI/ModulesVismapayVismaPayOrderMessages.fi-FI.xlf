@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="ModulesVismapayVismaPayOrderMessages.xlf" source-language="fi-FI" target-language="fi-FI" datatype="plaintext">
+    <body>
+      <trans-unit id="44749712dbec183e983dcd78a7736c41">
+        <source>Date</source>
+        <target>Päivämäärä</target>
+      </trans-unit>
+      <trans-unit id="4c2a8fe7eaf24721cc7a9f0175115bd4">
+        <source>Message</source>
+        <target>Viesti</target>
+      </trans-unit>
+      <trans-unit id="bcdde0c356d484aa60c310ea35507c0e">
+        <source>Visma Pay messages</source>
+        <target>Visma Pay -viestit</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

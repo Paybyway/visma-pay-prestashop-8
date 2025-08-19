@@ -1,0 +1,30 @@
+services:
+  _defaults:
+    public: false
+    autowire: true
+    autoconfigure: true
+  
+  VismaPayModule\Service\SettlementService:
+    class: VismaPayModule\Service\SettlementService
+
+  VismaPayModule\Service\SettlementFormRenderer:
+    class: VismaPayModule\Service\SettlementFormRenderer
+
+  VismaPayModule\Twig\Extension\SettlementFormTwigExtension:
+    class: VismaPayModule\Twig\Extension\SettlementFormTwigExtension
+    tags:
+      - { name: 'twig.extension' }
+
+  VismaPayModule\Twig\Runtime\SettlementFormRuntime:
+    class: VismaPayModule\Twig\Runtime\SettlementFormRuntime
+    tags:
+      - { name: 'twig.runtime' }
+
+  VismaPayModule\Controller\Admin\VismaPayOrderController:
+    class: VismaPayModule\Controller\Admin\VismaPayOrderController
+    tags: ['controller.service_arguments'] # Register controllers so action arguments can be autowired
+
+  VismaPayModule\Form\Type\SettlePaymentType:
+    class: VismaPayModule\Form\Type\SettlePaymentType
+    tags:
+      - { name: 'form.type' }

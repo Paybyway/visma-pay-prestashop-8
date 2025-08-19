@@ -30,12 +30,9 @@ class VismaPayPaymentModuleFrontController extends ModuleFrontController
      */
     public function postProcess(): void
     {
-        /* @var VismaPay $module */
-        $this->module = $this->module;
-
         // Check that module is registered as payment module
         if (array_search($this->module->name, array_column(Module::getPaymentModules(), 'name')) === false) {
-            exit($this->module->l('Payment method is not available.', 'payment'));
+            exit($this->module->getTranslator()->trans('Payment method is not available.', [], 'Modules.Vismapay.VismaPayPayment'));
         }
 
         $cart = $this->context->cart;
@@ -56,7 +53,7 @@ class VismaPayPaymentModuleFrontController extends ModuleFrontController
                 ['action' => 'show']
             );
             $this->context->smarty->assign('vp_link', $url);
-            $this->context->smarty->assign('vp_error', $this->module->l('Payment failed, please try again.', 'payment'));
+            $this->context->smarty->assign('vp_error', $this->module->getTranslator()->trans('Payment failed, please try again.', [], 'Modules.Vismapay.VismaPayPayment'));
             $this->setTemplate('module:vismapay/views/templates/front/payment_error.tpl');
         } else {
             // Clear cart if setting is enabled
@@ -64,6 +61,7 @@ class VismaPayPaymentModuleFrontController extends ModuleFrontController
                 $cart = new Cart($cart->id);
                 $this->context->cookie->__unset('id_cart');
                 $this->context->cart = new Cart();
+                $this->context->cookie->write();
             }
 
             $this->setRedirectAfter($paymentUrl);

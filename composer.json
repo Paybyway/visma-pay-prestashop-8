@@ -1,0 +1,16 @@
+{
+  "name": "paybyway/visma-pay-prestashop-8",
+  "description": "Visma Pay for PrestaShop 8",
+  "autoload": {
+    "psr-4": {
+      "VismaPayModule\\": "src/"
+    }
+  },
+  "config": {
+      "prepend-autoloader": false
+  },
+  "type": "prestashop-module",
+  "require": {
+    "visma-pay/visma-pay": "1.0.2"
+  }
+}

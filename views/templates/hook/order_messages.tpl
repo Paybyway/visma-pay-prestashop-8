@@ -19,16 +19,16 @@
 <div class="card mt-2">
     <div class="card-header">
         <h3 class="card-header-title">
-            <img src="{$logo_url}">
-            <span>{l s='Visma Pay messages' mod='vismapay'}</span>
+            <img src="{$logo_url|escape:'html':'UTF-8'}">
+            <span>{l s='Visma Pay messages' d='Modules.Vismapay.VismaPayOrderMessages'}</span>
         </h3>
     </div>
     <div class="card-body">
         <table class="table">
             <thead>
                 <tr>
-                    <th>{l s='Date' mod='vismapay'}</th>
-                    <th>{l s='Message' mod='vismapay'}</th>
+                    <th>{l s='Date' d='Modules.Vismapay.VismaPayOrderMessages'}</th>
+                    <th>{l s='Message' d='Modules.Vismapay.VismaPayOrderMessages'}</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,12 +36,11 @@
                 {foreach from=$messages item=message}
                     <tr>
                         <td>{dateFormat date=$message->date full=1}</td>
-                        <td>{$message->content}</td>
+                        <td>{$message->content|escape:'html':'UTF-8'}</td>
                     </tr>
                 {/foreach}
             {/if}
             </tbody>
         </table>
-        
     </div>
 </div>
